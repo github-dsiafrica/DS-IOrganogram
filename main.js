@@ -15,7 +15,7 @@ function filterChart(e) {
 
 	// Loop over data and check if input value matches any name
 	data.forEach((d) => {
-		if (value != "" && d.name.toLowerCase().includes(value.toLowerCase())) {
+		if (value != "" && d.title.toLowerCase().includes(value.toLowerCase())) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
 			d._expanded = true;
@@ -32,11 +32,11 @@ function filterChart(e) {
 d3.csv("./data/data.csv").then((data) => {
 	chart = new d3.OrgChart()
 		.nodeHeight((d) => 500)
-		.nodeWidth((d) => 300 + 2)
-		.childrenMargin((d) => 50)
-		.compactMarginBetween((d) => 60)
-		.compactMarginPair((d) => 60)
-		.neighbourMargin((a, b) => 60)
+		.nodeWidth((d) => 300)
+		// .childrenMargin((d) => 50)
+		// .compactMarginBetween((d) => 60)
+		// .compactMarginPair((d) => 60)
+		// .neighbourMargin((a, b) => 60)
 		.nodeContent(function (d, i, arr, state) {
 			const color = "#FFFFFF";
 			const imageDiffVert = 25 + 2;
@@ -65,7 +65,7 @@ d3.csv("./data/data.csv").then((data) => {
 				/>
 				
 				<p class="text-center text-white text-xl pt-24 pb-4">
-					<span class="font-bold">Contact PI:</span>${d.data.pi}
+					<span class="font-bold">Contact PI: </span>${d.data.pi}
 				</p>
 			</footer>
 		</div>
