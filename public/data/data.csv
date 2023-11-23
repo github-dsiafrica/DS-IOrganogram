@@ -1,0 +1,3 @@
+id,parentId,name,lastName,position,image,email,phone_number
+1,,National Institues of Health,,Funders,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/NIH%20logo.png,,
+2,1,DS-I Africa Coordinating Center,,Coordinating Center,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/ds-i%20africa%20cc.png,,
