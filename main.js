@@ -40,7 +40,7 @@ d3.csv("./data/data.csv").then((data) => {
 		.nodeContent(function (d, i, arr, state) {
 			const color = "#FFFFFF";
 			const imageDiffVert = 25 + 2;
-			return `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
+			return `<a href="https://dsi-africa.org" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
 				class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 			>
@@ -68,7 +68,7 @@ d3.csv("./data/data.csv").then((data) => {
 					<span class="font-bold">Contact PI: </span>${d.data.pi}
 				</p>
 			</footer>
-		</div>
+		</a>
               
                           `;
 		})
