@@ -1,4 +1,4 @@
 id,parentId,title,acronym,institution,country,picture,pi
-1,,National Institutes of Health,NIH,National Institute of Biomedical Imaging and Bioengineering,United States of America,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/NIH%20logo.png,Laura Povlich
+1,,National Institutes of Health,NIH,National Institute of Biomedical Imaging and Bioengineering,United States of America,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/nih.jpg,Laura Povlich
 2,1,DS-I Africa Coordinating Center,DS-I Africa CC,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/ds-i%20africa%20cc.png,Michelle Skelton
 3,1,eLwazi Open Data Science Platform,eLwazi,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/elwazi.png,Nicola Mulder
