@@ -40,7 +40,7 @@ d3.csv("./data/data.csv").then((data) => {
 		.nodeContent(function (d, i, arr, state) {
 			const color = "#FFFFFF";
 			const imageDiffVert = 25 + 2;
-			return ` <div style='width:${
+			return ` <a href="https://dsi-africa.org" target="_blank" style='width:${
 				d.width
 			}px;height:${d.height}px;padding-top:${imageDiffVert - 2}px;padding-left:1px;padding-right:1px'>
 					  <div style="font-family: 'Inter', sans-serif;background-color:${color};  margin-left:-1px;width:${d.width - 2}px;height:${d.height - imageDiffVert}px;border-radius:10px;border: 1px solid #E4E2E9">
@@ -59,7 +59,7 @@ d3.csv("./data/data.csv").then((data) => {
 							} </div>
 
 					  </div>
-				  </div>`;
+				  </a>`;
 		})
 		.container(".chart-container")
 		.data(data)
