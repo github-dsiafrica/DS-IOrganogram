@@ -1,4 +1,13 @@
-id,parentId,title,acronym,institution,country,picture,pi
-1,,National Institutes of Health,NIH,National Institute of Biomedical Imaging and Bioengineering,United States of America,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/nih.jpg,Laura Povlich
-2,1,DS-I Africa Coordinating Center,DS-I Africa CC,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/ds-i%20africa%20cc.png,Michelle Skelton
-3,1,eLwazi Open Data Science Platform,eLwazi,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/elwazi.png,Nicola Mulder
+id,parentId,title,acronym,institution,country,picture,pi,featured,link
+1,,National Institutes of Health,NIH,National Institute of Biomedical Imaging and Bioengineering,United States of America,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/nih.jpg,Laura Povlich,true,https://www.nih.gov/
+2,1,DS-I Africa Coordinating Center,DS-I Africa CC,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/ds-i%20africa%20cc.png,Michelle Skelton,false,https://dsi-africa.org
+3,1,eLwazi Open Data Science Platform,eLwazi,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/elwazi.png,Nicola Mulder,false,https://elwazi.org/
+4,2,"Ethical, Legal & Social Implications",ELSI,,,,,true,https://dsi-africa.org/projects#ELSI
+5,2,,Research Hub,,,,,true,https://dsi-africa.org/projects#ResearchHub
+6,2,,Research Training Hub,,,,,true,https://dsi-africa.org/projects#Training
+7,2,,Research Education,,,,,true,https://dsi-africa.org/projects#ResearchEducation
+8,2,,Research,,,,,true,https://dsi-africa.org/projects#Research
+9,4,Bridging Gaps in the ELSI of Data Science Health Research in Nigeria,BridgELSI,Center for Bioethics and Research,Nigeria,"https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/bridgelsi.png",Temidayo Ogundiran,false,https://bioethicscenter.net/bridgelsi-project/
+10,4,DS-I Africa - Law,DS-I Africa - Law,University of KwaZulu-Natal,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/ds-i%20law.png,Donrich Thaldar,false,https://www.datalaw.africa/
+11,4,Research for Ethical Data Science in Southern Africa,REDSSA,Stellenbosch University,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/redssa.png,Keymanthri Moodley,false,https://www.sun.ac.za/english/faculty/healthsciences/cmel/redssa/Pages/default.aspx
+12,4,Public Understanding of Big data in Genomics Medicine in Africa,PUBGEM-Africa,University of Cape Town,South Africa,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/PI%20Photos/pubgem.png,Ambroise Wonkam,false,https://dsi-africa.org/project/3
