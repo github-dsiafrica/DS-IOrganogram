@@ -40,7 +40,7 @@ d3.csv("./data/data.csv").then((data) => {
 		})
 
 		// .childrenMargin((d) => 50)
-		// .compactMarginBetween((d) => 60)
+		.compactMarginBetween((d) => 60)
 		// .compactMarginPair((d) => 60)
 		// .neighbourMargin((a, b) => 60)
 		.nodeContent(function (d, i, arr, state) {
