@@ -20,6 +20,8 @@
 			oninput="filterChart(event)"
 		/>
 		<button onclick="chart.fit()">Fit to the screen</button>
+		<button onclick="chart.expandAll().fit()">expandAll</button>
+		<button onclick="chart.collapseAll().fit()">collapseAll</button>
 		<div class="chart-container h-screen"></div>
 		<!-- <div class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
