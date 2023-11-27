@@ -31,8 +31,8 @@ function filterChart(e) {
 // This is the data used - https://github.com/bumbeishvili/sample-data/blob/main/data-oracle.csv
 d3.csv("./data/data.csv").then((data) => {
 	chart = new d3.OrgChart()
-		.nodeHeight((d) => 500)
-		.nodeWidth((d) => 300)
+		.nodeHeight((d) => (d.data.featured ? 150 : 500))
+		.nodeWidth((d) => 350)
 		// .childrenMargin((d) => 50)
 		// .compactMarginBetween((d) => 60)
 		// .compactMarginPair((d) => 60)
@@ -40,7 +40,23 @@ d3.csv("./data/data.csv").then((data) => {
 		.nodeContent(function (d, i, arr, state) {
 			const color = "#FFFFFF";
 			const imageDiffVert = 25 + 2;
-			return `<a href="https://dsi-africa.org" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
+			return d.data.featured === "true"
+				? `<a href="https://dsi-africa.org" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
+				<header
+					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
+				>
+					${d.data.acronym}
+				</header>
+				<div class="bg-[#ecf0f6]">
+					<div class="p-2">
+						<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
+							${d.data.title}
+						</p>
+						<p class="text-center text-[#1479a7] text-xl">${d.data.country}</p>
+					</div>
+				</div>
+			</a>`
+				: `<a href="https://dsi-africa.org" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
 				class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 			>
