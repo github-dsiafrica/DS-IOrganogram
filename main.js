@@ -30,19 +30,20 @@ function filterChart(e) {
 
 d3.csv("./data/data.csv").then((data) => {
 	data.forEach((d) => {
-		// d._expanded = true;
+		d._expanded = true;
 	});
 	chart = new d3.OrgChart()
 		.nodeHeight((d) => (d.data.featured === "true" ? 150 : 450))
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
-			d3.select(this).attr("stroke", "black");
+			d3.select(this).attr("stroke", "#1479a7");
 		})
 
-		// .childrenMargin((d) => 50)
-		.compactMarginBetween((d) => 60)
-		// .compactMarginPair((d) => 60)
-		// .neighbourMargin((a, b) => 60)
+		.childrenMargin((d) => 100)
+		.siblingsMargin((d) => 100)
+		.compactMarginBetween((d) => 200)
+		.compactMarginPair((d) => 300)
+		.neighbourMargin((a, b) => 500)
 		.nodeContent(function (d, i, arr, state) {
 			const color = "#FFFFFF";
 			const imageDiffVert = 25 + 2;
