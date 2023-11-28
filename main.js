@@ -28,7 +28,9 @@ function filterChart(e) {
 	console.log("filtering chart", e.srcElement.value);
 }
 
-d3.csv("./data/data.csv").then((data) => {
+d3.csv(
+	"https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/data/data.csv"
+).then((data) => {
 	data.forEach((d) => {
 		d._expanded = true;
 	});
