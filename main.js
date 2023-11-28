@@ -33,7 +33,7 @@ d3.csv("./data/data.csv").then((data) => {
 		d._expanded = true;
 	});
 	chart = new d3.OrgChart()
-		.nodeHeight((d) => (d.data.featured === "true" ? 150 : 450))
+		.nodeHeight((d) => (d.data.featured === "true" ? 110 : 450))
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
 			d3.select(this).attr("stroke", "#1479a7");
@@ -45,8 +45,6 @@ d3.csv("./data/data.csv").then((data) => {
 		.compactMarginPair((d) => 300)
 		.neighbourMargin((a, b) => 500)
 		.nodeContent(function (d, i, arr, state) {
-			const color = "#FFFFFF";
-			const imageDiffVert = 25 + 2;
 			return d.data.featured === "true"
 				? `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
