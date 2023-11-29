@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inputs {
+	position: absolute;
+	top: 0.5rem;
+	right: 1rem;
+	transition: 0.4s ease;
+	background: #fff;
+}
+
+#search {
+	outline: 1px solid slategray;
+	padding: 0.2rem 1rem;
+}
+
+#search:focus {
+	outline-style: dashed;
+}
+
+#search:hover {
+	outline-style: dotted;
+}
+
+button {
+	background: slategray;
+	color: white;
+	padding: 0.2rem 1rem;
+}
+
+button:hover {
+	background: #1479a7;
+}
+
+.chart-container,
+.svg-chart-container {
+	height: 100vh;
+}
