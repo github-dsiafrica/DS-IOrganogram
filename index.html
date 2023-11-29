@@ -12,15 +12,10 @@
 		<script src="https://cdn.jsdelivr.net/npm/d3-flextree@2.1.2/build/d3-flextree.js"></script>
 	</head>
 	<body>
-		<input
-			type="search"
-			id="search"
-			placeholder="search by name"
-			oninput="filterChart(event)"
-		/>
-		<button onclick="chart.fit()">Fit to the screen</button>
-		<button onclick="chart.expandAll().fit()">expandAll</button>
-		<button onclick="chart.collapseAll().fit()">collapseAll</button>
+		<input type="search" id="search" placeholder="search by name" />
+		<button id="fit">Fit to the screen</button>
+		<button id="expand">expandAll</button>
+		<button id="collapse">collapseAll</button>
 		<div class="chart-container h-screen"></div>
 		<!-- <div class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
@@ -52,7 +47,7 @@
 				<span class="font-bold">Contact PI:</span> Aminkeng Leke
 			</p>
 		</footer>
-		</div> -->
-		<script src="./main.js" type="module"></script>
+	</div> -->
+		<script src="./main.js" type="module" defer></script>
 	</body>
 </html>

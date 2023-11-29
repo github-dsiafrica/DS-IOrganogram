@@ -15,7 +15,11 @@ function filterChart(e) {
 
 	// Loop over data and check if input value matches any name
 	data.forEach((d) => {
-		if (value != "" && d.title.toLowerCase().includes(value.toLowerCase())) {
+		if (
+			value != "" &&
+			(d.title.toLowerCase().includes(value.toLowerCase()) ||
+				d.acronym.toLowerCase().includes(value.toLowerCase()))
+		) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
 			d._expanded = true;
@@ -99,3 +103,14 @@ d3.csv(
 		.render()
 		.fit();
 });
+
+document.getElementById("fit").addEventListener("click", () => chart.fit());
+document
+	.getElementById("expand")
+	.addEventListener("click", () => chart.expandAll().fit());
+document
+	.getElementById("collapse")
+	.addEventListener("click", () => chart.collapseAll().fit());
+document
+	.getElementById("search")
+	.addEventListener("input", (event) => filterChart(event));
