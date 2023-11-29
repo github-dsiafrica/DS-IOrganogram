@@ -18,7 +18,8 @@ function filterChart(e) {
 		if (
 			value != "" &&
 			(d.title.toLowerCase().includes(value.toLowerCase()) ||
-				d.acronym.toLowerCase().includes(value.toLowerCase()))
+				d.acronym.toLowerCase().includes(value.toLowerCase()) ||
+				d.pi.toLowerCase().includes(value.toLowerCase()))
 		) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
