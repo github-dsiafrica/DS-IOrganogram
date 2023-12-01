@@ -40,7 +40,7 @@ d3.csv(
 		d._expanded = true;
 	});
 	chart = new d3.OrgChart()
-		.nodeHeight((d) => (d.data.featured === "true" ? 110 : 450))
+		.nodeHeight((d) => (d.data.featured === "true" ? 130 : 450))
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
 			d3.select(this).attr("stroke", "#1479a7");
