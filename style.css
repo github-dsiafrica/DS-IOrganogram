@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.logo {
+	height: 5rem;
+	position: absolute;
+	left: 1rem;
+}
+
 .inputs {
 	position: absolute;
 	top: 0.5rem;
