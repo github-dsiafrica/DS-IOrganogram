@@ -1,6 +1,6 @@
 let chart;
 
-const truncate = (text, length) => text.substring(0, length);
+const truncate = (text, length) => text.substring(0, length) + " ...";
 
 const searchWholeWord = (text, searchTerm) => {
 	// Escape special characters in the search term
