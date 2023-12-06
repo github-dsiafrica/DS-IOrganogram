@@ -109,7 +109,7 @@ d3.csv("/data/data.csv").then((data) => {
 						<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
 							${d.data.expertise}
 						</p>
-						<p class="text-center text-[#1479a7] text-xl">${d.data.role}</p>
+						
 					</div>
 				</div>
 				<footer class="bg-[#1479a7] relative">
@@ -118,6 +118,10 @@ d3.csv("/data/data.csv").then((data) => {
 						src=${d.data.picture}
 						alt="PI Photo"
 					/>
+
+					<p class="text-center text-white text-xl pt-24 pb-4 font-bold">
+					${d.data.role}
+				</p>
 				</footer>
 			</div>`;
 		})
