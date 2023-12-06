@@ -51,9 +51,7 @@ function filterChart(e) {
 	console.log("filtering chart", e.srcElement.value);
 }
 
-d3.csv(
-	"https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/data/data.csv"
-).then((data) => {
+d3.csv("/data/data.csv").then((data) => {
 	data.forEach((d) => {
 		d._expanded = d.type === "group" || d.type === "project";
 	});
@@ -79,7 +77,7 @@ d3.csv(
 		.neighbourMargin((a, b) => 500)
 		.nodeContent(function (d, i, arr, state) {
 			return d.data.type === "group"
-				? `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
+				? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
 					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 				>
@@ -94,7 +92,7 @@ d3.csv(
 				</div>
 			</a>`
 				: d.data.type === "project"
-				? `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
+				? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
 				class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 			>
@@ -144,9 +142,9 @@ d3.csv(
 			</div>`
 				: `<div class="bg-[#ecf0f6]">
 				<div class="p-2">
-					<p class="text-lg">
+					<a href="${d.data.link}" class="text-lg">
 					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 300)}
-					</p>
+					</a>
 					<p class="text-[#1479a7] text-lg pt-1">
 						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, 100)}
 					</p>
