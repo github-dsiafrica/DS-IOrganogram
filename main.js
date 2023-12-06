@@ -118,11 +118,11 @@ d3.csv("/data/data.csv").then((data) => {
 			</div>`
 				: `<div class="bg-[#ecf0f6]">
 				<div class="p-2">
-					<p class="text-center text-lg">
+					<p class="text-lg">
 						${d.data.bio}
 					</p>
-					<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
-						${d.data.expertise}
+					<p class="text-[#1479a7] text-lg pt-1">
+						<span class="font-bold">Expertise: </span>${d.data.expertise}
 					</p>
 					
 				</div>
