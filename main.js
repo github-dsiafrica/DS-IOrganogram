@@ -143,7 +143,7 @@ d3.csv("/data/data.csv").then((data) => {
 				: `<div class="bg-[#ecf0f6]">
 				<div class="p-2">
 					<a href="${d.data.link}" class="text-lg">
-					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 300)}
+					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 210)}
 					</a>
 					<p class="text-[#1479a7] text-lg pt-1">
 						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, 100)}
