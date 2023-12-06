@@ -1,5 +1,16 @@
 let chart;
 
+const searchWholeWord = (text, searchTerm) => {
+	// Escape special characters in the search term
+	const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+	// Create a regular expression with word boundaries
+	const regex = new RegExp("\\b" + escapedSearchTerm + "\\b", "i");
+
+	// Test if the text contains a whole word match
+	return regex.test(text);
+};
+
 function filterChart(e) {
 	// Get input value
 	const value = e.srcElement.value;
@@ -15,15 +26,16 @@ function filterChart(e) {
 
 	// Loop over data and check if input value matches any name
 	data.forEach((d) => {
+		const searchTerm = value.toLowerCase();
 		if (
 			value != "" &&
-			(d.title.toLowerCase().includes(value.toLowerCase()) ||
-				d.acronym.toLowerCase().includes(value.toLowerCase()) ||
-				d.pi.toLowerCase().includes(value.toLowerCase()) ||
-				d.institution.toLowerCase().includes(value.toLowerCase()) ||
-				d.country.toLowerCase().includes(value.toLowerCase()) ||
-				d.bio.toLowerCase().includes(value.toLowerCase()) ||
-				d.expertise.toLowerCase().includes(value.toLowerCase()))
+			(searchWholeWord(d.title, searchTerm) ||
+				searchWholeWord(d.acronym, searchTerm) ||
+				searchWholeWord(d.pi, searchTerm) ||
+				searchWholeWord(d.institution, searchTerm) ||
+				searchWholeWord(d.country, searchTerm) ||
+				searchWholeWord(d.bio, searchTerm) ||
+				searchWholeWord(d.expertise, searchTerm))
 		) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
