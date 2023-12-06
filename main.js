@@ -111,7 +111,7 @@ d3.csv("/data/data.csv").then((data) => {
 			</div>
 			<footer class="bg-[#1479a7] relative">
 				<img
-					class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2"
+					class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2 object-cover"
 					src=${d.data.picture}
 					alt="PI Photo"
 				/>
@@ -131,7 +131,7 @@ d3.csv("/data/data.csv").then((data) => {
 				
 				<div class="bg-[#1479a7] flex items-center justify-center flex-col gap-4">
 					<img
-						class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white mt-4"
+						class="rounded-full max-w-full aspect-square object-cover h-48 border-[6px] border-white mt-4"
 						src=${d.data.picture}
 						alt="PI Photo"
 					/>
