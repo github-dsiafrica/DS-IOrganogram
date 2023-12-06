@@ -1,5 +1,7 @@
 let chart;
 
+const truncate = (text, length) => text.substring(0, length);
+
 const searchWholeWord = (text, searchTerm) => {
 	// Escape special characters in the search term
 	const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -143,10 +145,10 @@ d3.csv(
 				: `<div class="bg-[#ecf0f6]">
 				<div class="p-2">
 					<p class="text-lg">
-					<span class="font-bold">Bio: </span>${d.data.bio}
+					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 300)}
 					</p>
 					<p class="text-[#1479a7] text-lg pt-1">
-						<span class="font-bold">Expertise: </span>${d.data.expertise}
+						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, 100)}
 					</p>
 					
 				</div>
