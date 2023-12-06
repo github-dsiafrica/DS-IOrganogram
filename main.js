@@ -95,35 +95,26 @@ d3.csv("/data/data.csv").then((data) => {
 				</p>
 			</footer>
 		</a>`
-				: `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
+				: d.data.type === "member"
+				? `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
 					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 				>
 					${d.data.title}
 				</header>
-				<div class="bg-[#ecf0f6] pb-28">
-					<div class="p-2">
-						<p class="text-center text-lg">
-							${d.data.bio}
-						</p>
-						<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
-							${d.data.expertise}
-						</p>
-						
-					</div>
-				</div>
-				<footer class="bg-[#1479a7] relative">
+				
+				<div class="bg-[#1479a7] flex items-center justify-center flex-col gap-4">
 					<img
-						class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2"
+						class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white mt-4"
 						src=${d.data.picture}
 						alt="PI Photo"
 					/>
 
-					<p class="text-center text-white text-xl pt-24 pb-4 font-bold">
-					${d.data.role}
-				</p>
-				</footer>
-			</div>`;
+					<p class="text-center text-white text-xl  pb-4 font-bold">
+					${d.data.role}</p>
+				</div>
+			</div>`
+				: ``;
 		})
 		.container(".chart-container")
 		.data(data)
