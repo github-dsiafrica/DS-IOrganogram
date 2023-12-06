@@ -38,7 +38,9 @@ d3.csv("/data/data.csv").then((data) => {
 		d._expanded = true;
 	});
 	chart = new d3.OrgChart()
-		.nodeHeight((d) => (d.data.type === "group" ? 130 : 450))
+		.nodeHeight((d) =>
+			d.data.type === "group" ? 130 : d.data.type === "member" ? 350 : 450
+		)
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
 			d3.select(this).attr("stroke", "#1479a7");
@@ -96,7 +98,7 @@ d3.csv("/data/data.csv").then((data) => {
 			</footer>
 		</a>`
 				: d.data.type === "member"
-				? `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
+				? `<div class="max-w-md">
 				<header
 					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 				>
@@ -114,7 +116,17 @@ d3.csv("/data/data.csv").then((data) => {
 					${d.data.role}</p>
 				</div>
 			</div>`
-				: ``;
+				: `<div class="bg-[#ecf0f6]">
+				<div class="p-2">
+					<p class="text-center text-lg">
+						${d.data.bio}
+					</p>
+					<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
+						${d.data.expertise}
+					</p>
+					
+				</div>
+			</div>`;
 		})
 		.container(".chart-container")
 		.data(data)
