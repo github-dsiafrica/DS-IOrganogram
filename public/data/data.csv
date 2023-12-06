@@ -47,7 +47,7 @@ id,parentId,title,acronym,institution,country,picture,pi,type,link,bio,expertise
 45,7,West Africa Center of Excellence for Data Science Research Education,West Africa...,"University of Sciences, Tech & Tech of Bamako",Mali,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/photos/west%20africa.png,Seydou Doumbia,project,
 47,1,Funders,Funders,,,,,group,https://nih.gov
 48,2,Michelle Skelton,,,,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/photos/ds-i%20africa%20cc.png,,member,,,,Contact PI
-49,48,,,,,,,,,"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quaerat sit dolore placeat provident iste maiores fugit in aliquid, sint quod facilis delectus voluptate est dolor praesentium voluptatem nisi aliquam!","Lorem ipsum dolor sit amet consectetur",
+49,48,,,,,,,info,,"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quaerat sit dolore placeat provident iste maiores fugit in aliquid, sint quod facilis delectus voluptate est dolor praesentium voluptatem nisi aliquam!","Lorem ipsum dolor sit amet consectetur expertise",
 50,2,Francis Agamah,,,,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/photos/francis.JPG,,member,,,,Project Manager
 51,2,Rolanda Julius,,,,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/photos/rolanda.jpg,,member,,,,Training Coordinator
 52,2,Tanian Natus-Isaacs,,,,https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/photos/tanian.jpg,,member,,,,Administrative Assistant

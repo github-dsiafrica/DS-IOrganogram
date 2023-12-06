@@ -19,7 +19,11 @@ function filterChart(e) {
 			value != "" &&
 			(d.title.toLowerCase().includes(value.toLowerCase()) ||
 				d.acronym.toLowerCase().includes(value.toLowerCase()) ||
-				d.pi.toLowerCase().includes(value.toLowerCase()))
+				d.pi.toLowerCase().includes(value.toLowerCase()) ||
+				d.institution.toLowerCase().includes(value.toLowerCase()) ||
+				d.country.toLowerCase().includes(value.toLowerCase()) ||
+				d.bio.toLowerCase().includes(value.toLowerCase()) ||
+				d.expertise.toLowerCase().includes(value.toLowerCase()))
 		) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
@@ -39,7 +43,13 @@ d3.csv("/data/data.csv").then((data) => {
 	});
 	chart = new d3.OrgChart()
 		.nodeHeight((d) =>
-			d.data.type === "group" ? 130 : d.data.type === "member" ? 350 : 450
+			d.data.type === "group"
+				? 130
+				: d.data.type === "member"
+				? 350
+				: d.data.type === "info"
+				? 250
+				: 450
 		)
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
