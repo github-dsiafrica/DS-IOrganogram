@@ -13,12 +13,32 @@
 		<script src="https://cdn.jsdelivr.net/npm/d3-flextree@2.1.2/build/d3-flextree.js"></script>
 	</head>
 	<body>
-		<img class="logo" src="/logo.png" alt="ds-i africa logo" />
-		<div class="inputs">
-			<input type="search" id="search" placeholder="Search" />
-			<button id="fit">Fit to the screen</button>
-			<button id="expand">Expand all</button>
-			<button id="collapse">Collapse all</button>
+		<img class="h-20 absolute left-4" src="/logo.png" alt="ds-i africa logo" />
+		<div class="absolute top-2 right-4 transition bg-white">
+			<input
+				type="search"
+				id="search"
+				placeholder="Search"
+				class="outline outline-[slategray] outline-1 px-4 py-1 focus:outline-dashed hover:outline-dotted"
+			/>
+			<button
+				class="bg-[slategray] text-white px-4 py-1 hover:bg-[#1479a7]"
+				id="fit"
+			>
+				Fit to the screen
+			</button>
+			<button
+				class="bg-[slategray] text-white px-4 py-1 hover:bg-[#1479a7]"
+				id="expand"
+			>
+				Expand all
+			</button>
+			<button
+				class="bg-[slategray] text-white px-4 py-1 hover:bg-[#1479a7]"
+				id="collapse"
+			>
+				Collapse all
+			</button>
 		</div>
 		<div class="chart-container"></div>
 		<!-- <div class="max-w-md shadow-2xl shadow-[#1479a7]">
