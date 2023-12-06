@@ -35,7 +35,7 @@ function filterChart(e) {
 
 d3.csv("/data/data.csv").then((data) => {
 	data.forEach((d) => {
-		d._expanded = true;
+		d._expanded = d.type === "group" || d.type === "project";
 	});
 	chart = new d3.OrgChart()
 		.nodeHeight((d) =>
