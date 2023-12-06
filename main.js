@@ -33,14 +33,12 @@ function filterChart(e) {
 	console.log("filtering chart", e.srcElement.value);
 }
 
-d3.csv(
-	"https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/data/data.csv"
-).then((data) => {
+d3.csv("/data/data.csv").then((data) => {
 	data.forEach((d) => {
 		d._expanded = true;
 	});
 	chart = new d3.OrgChart()
-		.nodeHeight((d) => (d.data.featured === "true" ? 130 : 450))
+		.nodeHeight((d) => (d.data.type === "group" ? 130 : 450))
 		.nodeWidth((d) => 350)
 		.linkUpdate(function (d, i, arr) {
 			d3.select(this).attr("stroke", "#1479a7");
@@ -52,7 +50,7 @@ d3.csv(
 		.compactMarginPair((d) => 300)
 		.neighbourMargin((a, b) => 500)
 		.nodeContent(function (d, i, arr, state) {
-			return d.data.featured === "true"
+			return d.data.type === "group"
 				? `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
 					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
@@ -67,7 +65,8 @@ d3.csv(
 					</div>
 				</div>
 			</a>`
-				: `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
+				: d.data.type === "project"
+				? `<a href="${d.data.link}" target="_blank" class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
 				class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 			>
@@ -95,9 +94,32 @@ d3.csv(
 					<span class="font-bold">Contact PI: </span>${d.data.pi}
 				</p>
 			</footer>
-		</a>
-              
-                          `;
+		</a>`
+				: `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
+				<header
+					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
+				>
+					${d.data.title}
+				</header>
+				<div class="bg-[#ecf0f6] pb-28">
+					<div class="p-2">
+						<p class="text-center text-lg">
+							${d.data.bio}
+						</p>
+						<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
+							${d.data.expertise}
+						</p>
+						<p class="text-center text-[#1479a7] text-xl">${d.data.role}</p>
+					</div>
+				</div>
+				<footer class="bg-[#1479a7] relative">
+					<img
+						class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2"
+						src=${d.data.picture}
+						alt="PI Photo"
+					/>
+				</footer>
+			</div>`;
 		})
 		.container(".chart-container")
 		.data(data)
