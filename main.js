@@ -180,9 +180,9 @@ d3.csv("/data/data.csv").then((data) => {
 					<p class="text-center text-[#1479a7] text-xl">${d.data.country}</p>
 				</div>
 			</div>
-			<footer class="bg-[#1479a7] relative">
+			<footer class="bg-[#1479a7]">
 				<img
-					class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2 object-cover"
+					class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white object-cover"
 					src=${d.data.picture}
 					alt="PI Photo"
 				/>
