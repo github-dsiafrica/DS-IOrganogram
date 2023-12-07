@@ -197,10 +197,14 @@ document.getElementById("fit").addEventListener("click", () => chart.fit());
 
 // Configure reset button.
 document.getElementById("reset").addEventListener("click", () => {
+	document.getElementById("search").form.reset();
+
+	// Mark only nodes of type group and project to be expanded.
 	chart.data().forEach((d) => {
 		chart.setExpanded(d.id, d.type === "group" || d.type === "project");
 	});
 
+	// Re-render chart.
 	chart.render().fit();
 });
 
