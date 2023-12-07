@@ -247,6 +247,11 @@ document.getElementById("reset").addEventListener("click", () => {
 });
 
 // Configure search box.
-document
-	.getElementById("search")
-	.addEventListener("input", (event) => filterChart(event));
+let timeOutId;
+document.getElementById("search").addEventListener("keyup", (event) => {
+	if (timeOutId) clearTimeout(timeOutId);
+
+	timeOutId = setTimeout(() => {
+		filterChart(event);
+	}, 250);
+});
