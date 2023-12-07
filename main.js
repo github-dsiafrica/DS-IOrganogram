@@ -239,7 +239,8 @@ document.getElementById("reset").addEventListener("click", () => {
 	// Mark only nodes of type group and project to be expanded.
 	chart.data().forEach((d) => {
 		chart.setExpanded(d.id, d.type === "group" || d.type === "project");
-		chart.clearHighlighting();
+		d._highlighted = false;
+		d._upToTheRootHighlighted = false;
 	});
 
 	// Re-render chart.
