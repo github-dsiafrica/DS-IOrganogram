@@ -65,19 +65,43 @@ const filterChart = (e) => {
 	chart.data(data).render().fit();
 };
 
+/**
+ * Determines the appropriate height for a node based on the length of the content.
+ * @param {d3 OrgChart node} node A node from the org-chart
+ * @returns The appropriate height for that node.
+ */
 const calculateCustomHeight = (node) => {
+	// Get lengths of content.
+	const titleLength = node.title.length;
+	const acronymLength = node.acronym.length;
+	const institutionLength = node.institution.length;
+
+	// Calculate heights based on node type.
 	switch (node.type) {
 		case "group": {
-			return node.title.length > 47 ? 138 : 110;
-		}
-		case "member": {
-			return 350;
-		}
-		case "info": {
-			return 250;
+			let group = 110;
+			if (titleLength >= 47) group += Math.floor(titleLength / 47) * 28;
+			return group;
 		}
 		case "project": {
-			return node.title.length > 22 ? 520 : 400;
+			let project = 420;
+			if (titleLength >= 40) project += Math.floor(titleLength / 40) * 28;
+			if (acronymLength >= 22) project += Math.floor(acronymLength / 22) * 35;
+			if (institutionLength >= 38)
+				project += Math.floor(institutionLength / 38) * 30;
+
+			// Edge cases
+			if (node.id === "33" || node.id === "34") project += 30;
+			if (node.id == "23" || node.id == "29") project -= 30;
+			return project;
+		}
+		case "member": {
+			let member = 335;
+			if (titleLength >= 22) member += Math.floor(titleLength / 22) * 35;
+			return member;
+		}
+		case "info": {
+			return 220;
 		}
 		default: {
 			return 100;
