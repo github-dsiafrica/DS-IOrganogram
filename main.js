@@ -9,6 +9,12 @@ let chart;
 const truncate = (text, length) =>
 	text.length > length ? text.substring(0, length) + " ..." : text;
 
+/**
+ * Searches for an entire word match.
+ * @param {string} text The original text you are searching against
+ * @param {string} searchTerm The term you are searching for in the original text
+ * @returns True if the search term is found in the text, false otherwise.
+ */
 const searchWholeWord = (text, searchTerm) => {
 	// Escape special characters in the search term
 	const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -20,11 +26,13 @@ const searchWholeWord = (text, searchTerm) => {
 	return regex.test(text);
 };
 
-function filterChart(e) {
-	// Get input value
-	const value = e.srcElement.value;
+/**
+ * Highlights and expends nodes which match the search term.
+ * @param {Event} e DOM Evebt
+ */
+const filterChart = (e) => {
+	const value = e.target.value;
 
-	// Clear previous higlighting
 	chart.clearHighlighting();
 
 	// Get chart nodes
@@ -33,7 +41,7 @@ function filterChart(e) {
 	// Mark all previously expanded nodes for collapse
 	data.forEach((d) => (d._expanded = false));
 
-	// Loop over data and check if input value matches any name
+	// Loop over data and check for matches in search term
 	data.forEach((d) => {
 		const searchTerm = value.toLowerCase();
 		if (
@@ -54,15 +62,17 @@ function filterChart(e) {
 
 	// Update data and rerender graph
 	chart.data(data).render().fit();
+};
 
-	console.log("filtering chart", e.srcElement.value);
-}
-
+// Read data from CSV
 d3.csv("/data/data.csv").then((data) => {
+	// Mark only nodes of type group and project to be expanded.
 	data.forEach((d) => {
 		d._expanded = d.type === "group" || d.type === "project";
 	});
+
 	chart = new d3.OrgChart()
+		// Adjust node height according to type of node
 		.nodeHeight((d) =>
 			d.data.type === "group"
 				? 130
@@ -73,16 +83,18 @@ d3.csv("/data/data.csv").then((data) => {
 				: 450
 		)
 		.nodeWidth((d) => 350)
+		// Change line colour to blue.
 		.linkUpdate(function (d, i, arr) {
 			d3.select(this).attr("stroke", "#1479a7");
 		})
 
-		.childrenMargin((d) => 100)
-		.siblingsMargin((d) => 100)
-		.compactMarginBetween((d) => 200)
-		.compactMarginPair((d) => 300)
-		.neighbourMargin((a, b) => 500)
-		.nodeContent(function (d, i, arr, state) {
+		.childrenMargin((/*d*/) => 100)
+		.siblingsMargin((/*d*/) => 100)
+		.compactMarginBetween((/*d*/) => 200)
+		.compactMarginPair((/*d*/) => 300)
+		.neighbourMargin((/*a, b*/) => 500)
+		.nodeContent(function (d /*, i, arr, state*/) {
+			// Render different HTML depending on the type of node
 			return d.data.type === "group"
 				? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
@@ -165,7 +177,10 @@ d3.csv("/data/data.csv").then((data) => {
 		.fit();
 });
 
+// Configure fit button.
 document.getElementById("fit").addEventListener("click", () => chart.fit());
+
+// Configure reset button.
 document.getElementById("reset").addEventListener("click", () => {
 	chart.data().forEach((d) => {
 		chart.setExpanded(d.id, d.type === "group" || d.type === "project");
@@ -173,6 +188,8 @@ document.getElementById("reset").addEventListener("click", () => {
 
 	chart.render().fit();
 });
+
+// Configure search box.
 document
 	.getElementById("search")
 	.addEventListener("input", (event) => filterChart(event));
