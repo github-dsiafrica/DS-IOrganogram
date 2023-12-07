@@ -159,12 +159,13 @@ d3.csv("/data/data.csv").then((data) => {
 });
 
 document.getElementById("fit").addEventListener("click", () => chart.fit());
-document
-	.getElementById("expand")
-	.addEventListener("click", () => chart.expandAll().fit());
-document
-	.getElementById("collapse")
-	.addEventListener("click", () => chart.collapseAll().fit());
+document.getElementById("reset").addEventListener("click", () => {
+	chart.data().forEach((d) => {
+		chart.setExpanded(d.id, d.type === "group" || d.type === "project");
+	});
+
+	chart.render().fit();
+});
 document
 	.getElementById("search")
 	.addEventListener("input", (event) => filterChart(event));
