@@ -78,7 +78,9 @@ d3.csv("/data/data.csv").then((data) => {
 		// Adjust node height according to type of node
 		.nodeHeight((d) =>
 			d.data.type === "group"
-				? 130
+				? d.data.title.length > 47
+					? 138
+					: 110
 				: d.data.type === "member"
 				? 350
 				: d.data.type === "info"
