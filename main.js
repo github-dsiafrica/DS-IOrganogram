@@ -65,6 +65,26 @@ const filterChart = (e) => {
 	chart.data(data).render().fit();
 };
 
+const calculateCustomHeight = (node) => {
+	switch (node.type) {
+		case "group": {
+			return node.title.length > 47 ? 138 : 110;
+		}
+		case "member": {
+			return 350;
+		}
+		case "info": {
+			return 250;
+		}
+		case "project": {
+			return node.title.length > 22 ? 520 : 400;
+		}
+		default: {
+			return 100;
+		}
+	}
+};
+
 // Read data from CSV
 d3.csv("/data/data.csv").then((data) => {
 	// Mark only nodes of type group and project to be expanded.
@@ -76,17 +96,7 @@ d3.csv("/data/data.csv").then((data) => {
 
 	chart = new d3.OrgChart()
 		// Adjust node height according to type of node
-		.nodeHeight((d) =>
-			d.data.type === "group"
-				? d.data.title.length > 47
-					? 138
-					: 110
-				: d.data.type === "member"
-				? 350
-				: d.data.type === "info"
-				? 250
-				: 450
-		)
+		.nodeHeight((d) => calculateCustomHeight(d.data))
 		.nodeWidth((/*d*/) => 350)
 		// Change highlight colour to red.
 		.nodeUpdate(function (/*d, i, arr*/) {
