@@ -1,6 +1,13 @@
 let chart;
 
-const truncate = (text, length) => text.substring(0, length) + " ...";
+/**
+ * Truncates a string to the specified length and appends an ellips at the end. If the string is shorter than the specified length, the original string is returned.
+ * @param {string} text The string you want to be potentially truncated
+ * @param {number} length The point at which the string should be truncated
+ * @returns The truncated string.
+ */
+const truncate = (text, length) =>
+	text.length > length ? text.substring(0, length) + " ..." : text;
 
 const searchWholeWord = (text, searchTerm) => {
 	// Escape special characters in the search term
@@ -146,7 +153,7 @@ d3.csv("/data/data.csv").then((data) => {
 					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 210)}
 					</a>
 					<p class="text-[#1479a7] text-lg pt-1">
-						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, 100)}
+						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, -1)}
 					</p>
 					
 				</div>
