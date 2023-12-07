@@ -91,7 +91,8 @@ const calculateCustomHeight = (node) => {
 				project += Math.floor(institutionLength / 38) * 30;
 
 			// Edge cases
-			if (node.id === "33" || node.id === "34") project += 30;
+			if (node.id === "33" || node.id === "34" || node.id === "39")
+				project += 30;
 			if (node.id == "23" || node.id == "29") project -= 30;
 			return project;
 		}
