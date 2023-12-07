@@ -56,6 +56,7 @@ const filterChart = (e) => {
 		) {
 			// If matches, mark node as highlighted
 			d._highlighted = true;
+			d._upToTheRootHighlighted = true;
 			d._expanded = true;
 		}
 	});
@@ -69,6 +70,8 @@ d3.csv("/data/data.csv").then((data) => {
 	// Mark only nodes of type group and project to be expanded.
 	data.forEach((d) => {
 		d._expanded = d.type === "group" || d.type === "project";
+		// d._highlighted = true;
+		// d._upToTheRootHighlighted = true;
 	});
 
 	chart = new d3.OrgChart()
@@ -82,12 +85,24 @@ d3.csv("/data/data.csv").then((data) => {
 				? 250
 				: 450
 		)
-		.nodeWidth((d) => 350)
-		// Change line colour to blue.
-		.linkUpdate(function (d, i, arr) {
-			d3.select(this).attr("stroke", "#1479a7");
+		.nodeWidth((/*d*/) => 350)
+		// Change highlight colour to red.
+		.nodeUpdate(function (/*d, i, arr*/) {
+			d3.select(this)
+				.select(".node-rect")
+				.attr("stroke", (d) => (d.data._highlighted ? "#e41619" : "none"))
+				.attr("stroke-width", 10);
 		})
+		// Change line colour to blue and red when highlighted.
+		.linkUpdate(function (d /*, i, arr*/) {
+			d3.select(this)
+				.attr("stroke", (d) => (d.data._highlighted ? "#e41619" : "#1479a7"))
+				.attr("stroke-width", (d) => (d.data._upToTheRootHighlighted ? 10 : 1));
 
+			if (d.data._upToTheRootHighlighted) {
+				d3.select(this).raise();
+			}
+		})
 		.childrenMargin((/*d*/) => 100)
 		.siblingsMargin((/*d*/) => 100)
 		.compactMarginBetween((/*d*/) => 200)
