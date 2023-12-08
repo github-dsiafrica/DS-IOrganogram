@@ -116,12 +116,12 @@ const calculateCustomHeight = (node) => {
 };
 
 // Read data from CSV
-d3.csv("/data/data.csv").then((data) => {
+d3.csv(
+	"https://raw.githubusercontent.com/github-dsiafrica/DS-IOrganogram/main/public/data/data.csv"
+).then((data) => {
 	// Mark only nodes of type group and project to be expanded.
 	data.forEach((d) => {
 		d._expanded = d.type === "group" || d.type === "project";
-		// d._highlighted = true;
-		// d._upToTheRootHighlighted = true;
 	});
 
 	chart = new d3.OrgChart()
