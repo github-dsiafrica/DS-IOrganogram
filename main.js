@@ -169,7 +169,37 @@ d3.csv(
 			</a>`
 				: d.data.type === "project"
 				? isAppleDevice
-					? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
+					? d.data.link
+						? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
+					<header
+						class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
+					>
+						${d.data.acronym}
+					</header>
+					<div class="bg-[#ecf0f6]">
+						<div class="p-2">
+							<p class="text-center text-lg">
+								${d.data.title}
+							</p>
+							<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
+								${d.data.institution}
+							</p>
+							<p class="text-center text-[#1479a7] text-xl">${d.data.country}</p>
+						</div>
+					</div>
+					<footer class="bg-[#1479a7] flex flex-col gap-4 justify-center items-center p-2">
+						<img
+							class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white object-cover"
+							src=${d.data.picture}
+							alt="PI Photo"
+						/>
+						
+						<p class="text-center text-white text-xl">
+							<span class="font-bold">Contact PI: </span>${d.data.pi}
+						</p>
+					</footer>
+				</a>`
+						: `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
 				<header
 					class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 				>
@@ -197,8 +227,9 @@ d3.csv(
 						<span class="font-bold">Contact PI: </span>${d.data.pi}
 					</p>
 				</footer>
-			</a>`
-					: `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
+			</div>`
+					: d.data.link
+					? `<a href="${d.data.link}"  class="max-w-md shadow-2xl shadow-[#1479a7]">
 			<header
 				class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
 			>
@@ -227,6 +258,35 @@ d3.csv(
 				</p>
 			</footer>
 		</a>`
+					: `<div class="max-w-md shadow-2xl shadow-[#1479a7]">
+		<header
+			class="font-bold bg-[#e41619] text-white text-3xl text-center p-2"
+		>
+			${d.data.acronym}
+		</header>
+		<div class="bg-[#ecf0f6] pb-28">
+			<div class="p-2">
+				<p class="text-center text-lg">
+					${d.data.title}
+				</p>
+				<p class="text-center font-bold text-[#1479a7] text-lg pt-1">
+					${d.data.institution}
+				</p>
+				<p class="text-center text-[#1479a7] text-xl">${d.data.country}</p>
+			</div>
+		</div>
+		<footer class="bg-[#1479a7] relative">
+			<img
+				class="rounded-full max-w-full aspect-square h-48 border-[6px] border-white absolute top-[-80%] left-1/2 -translate-x-1/2 object-cover"
+				src=${d.data.picture}
+				alt="PI Photo"
+			/>
+			
+			<p class="text-center text-white text-xl pt-24 pb-4">
+				<span class="font-bold">Contact PI: </span>${d.data.pi}
+			</p>
+		</footer>
+	</div>`
 				: d.data.type === "member"
 				? `<div class="max-w-md">
 				<header
