@@ -312,7 +312,7 @@ d3.csv(
 					<span class="font-bold">Bio: </span>${truncate(d.data.bio, 210)}
 					</a>
 					<p class="text-[#1479a7] text-lg pt-1">
-						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, -1)}
+						<span class="font-bold">Expertise: </span>${truncate(d.data.expertise, 210)}
 					</p>
 					
 				</div>
